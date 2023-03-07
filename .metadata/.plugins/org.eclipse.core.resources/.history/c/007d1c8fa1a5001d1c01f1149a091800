@@ -1,0 +1,34 @@
+package jpa;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Support {
+	private Long id_support;
+	private String firstName;
+	private String lastName;
+	public Long getId_support() {
+		return id_support;
+	}
+	@Id
+	@GenerateValue
+	public void setId_support(Long id_support) {
+		this.id_support = id_support;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	
+}
+

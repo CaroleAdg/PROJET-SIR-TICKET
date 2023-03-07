@@ -1,0 +1,9 @@
+package jpa;
+
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+public class abstract Personne {
+	private Long id_user;
+	private String first_name;
+	private String last_name;
+}

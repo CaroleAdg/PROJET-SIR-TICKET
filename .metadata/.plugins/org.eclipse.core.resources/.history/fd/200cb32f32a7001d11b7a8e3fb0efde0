@@ -1,0 +1,7 @@
+package dao;
+
+import jpa.User;
+
+public class UserDao extends AbstractJpaDao<Long,User> {
+
+}

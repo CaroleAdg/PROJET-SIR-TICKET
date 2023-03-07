@@ -1,0 +1,52 @@
+package jpa;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Support {
+	private Long id_support;
+	private String firstName;
+	private String lastName;
+	private List<Ticket> tickets=new ArrayList<Ticket>();
+	
+	@Id
+	@GeneratedValue
+	public Long getId_support() {
+		return id_support;
+	}
+	public void setId_support(Long id_support) {
+		this.id_support = id_support;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	@ManyToMany
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+	
+	
+	
+}
+

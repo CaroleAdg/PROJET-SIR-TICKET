@@ -1,0 +1,13 @@
+package dao;
+
+import jpa.Ticket;
+import jpa.User;
+
+
+public class TicketDao extends AbstractJpaDao<Long,Ticket> {
+	
+	public TicketDao() {
+		this.setClazz(Ticket.class);
+	}
+
+}

@@ -1,0 +1,50 @@
+package fr.istic.taa.jaxrs.rest;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
+import fr.istic.dto.TicketDto;
+import fr.istic.taa.jaxrs.dao.generic.TicketDao;
+import fr.istic.taa.jaxrs.dao.generic.UserDao;
+import fr.istic.taa.jaxrs.domain.Pet;
+import fr.istic.taa.jaxrs.domain.Ticket;
+import fr.istic.taa.jaxrs.domain.User;
+import io.swagger.v3.oas.annotations.Parameter;
+
+@Path("/Tickets")
+@Produces({"application/json"})
+
+public class TicketRessource {
+	
+	TicketDao tdao= new TicketDao();
+	UserDao udao= new UserDao(); 
+
+	  @GET
+	  @Path("/{TicketId}")
+	  public TicketDto getTicketById(@PathParam("TicketId") Long TicketId)  {
+	     Ticket t = tdao.findOne(TicketId);
+	      return new TicketDto(t);
+	  }
+
+	  @POST
+	  @Consumes("application/json")
+	  public Response addTicket(
+	      @Parameter(description = "Ticket object that needs to be added to the store", required = true) TicketDto tdto) {
+		  Ticket ticket= new Ticket();
+		  ticket.setLabel(tdto.getLabel());
+		  User user =  this.udao.findOne(tdto.getUserId());
+		  if(user!=null) {
+			  ticket.setUser(user);
+			  tdao.save(ticket);
+			   return Response.ok().entity("SUCCESS").build();
+		  }
+		  else
+		    return Response.status(500).entity("userId invalid").build();
+		  
+	  }
+}

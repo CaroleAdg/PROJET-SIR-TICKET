@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.persistence.Transient"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="jpa.Ticket"/>
+    <fullyQualifiedTypeName name="javax.swing.text.html.HTML.Tag"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="jpa.User"/>
+    <fullyQualifiedTypeName name="fr.istic.taa.jaxrs.rest.UserResource"/>
+    <fullyQualifiedTypeName name="fr.istic.taa.jaxrs.dao.generic.UserDao"/>
+</qualifiedTypeNameHistroy>

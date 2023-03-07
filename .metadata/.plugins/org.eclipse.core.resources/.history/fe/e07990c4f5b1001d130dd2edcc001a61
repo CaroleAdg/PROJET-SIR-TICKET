@@ -1,0 +1,25 @@
+package fr.istic.taa.jaxrs.rest;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
+import fr.istic.taa.jaxrs.dao.generic.TagDao;
+import fr.istic.taa.jaxrs.domain.Pet;
+import fr.istic.taa.jaxrs.domain.Tag;
+import fr.istic.taa.jaxrs.domain.User;
+
+@Path("/tags")
+@Produces({"application/json"})
+
+public class TagRessource {
+	TagDao tdao = new TagDao();
+
+	  @GET
+	  @Path("/{tagId}")
+	  public Tag getPetById(@PathParam("tagId") Long tagId)  {
+		  Tag t =  tdao.findOne(tagId);
+	      return new Tag();
+	  }
+}

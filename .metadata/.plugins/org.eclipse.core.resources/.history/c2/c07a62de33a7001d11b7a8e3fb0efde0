@@ -1,0 +1,7 @@
+package dao;
+
+import jpa.Support;
+
+public class SupportDao extends AbstractJpaDao<Long,Support>{
+
+}

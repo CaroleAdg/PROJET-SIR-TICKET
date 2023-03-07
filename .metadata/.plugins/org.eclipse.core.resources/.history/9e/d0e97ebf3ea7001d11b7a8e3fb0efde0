@@ -1,0 +1,11 @@
+package dao;
+
+import jpa.Message;
+import jpa.User;
+
+public class MessageDao extends AbstractJpaDao<Long,Message>{
+
+	public MessageDao() {
+		this.setClazz(Message.class);
+	}
+}

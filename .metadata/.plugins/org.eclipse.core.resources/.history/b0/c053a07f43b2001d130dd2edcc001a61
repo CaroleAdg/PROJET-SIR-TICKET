@@ -1,0 +1,31 @@
+package fr.istic.taa.jaxrs.rest;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
+import fr.istic.dto.SupportDto;
+import fr.istic.taa.jaxrs.dao.generic.SupportDao;
+import fr.istic.taa.jaxrs.dao.generic.TagDao;
+import fr.istic.taa.jaxrs.domain.Support;
+import fr.istic.taa.jaxrs.domain.Tag;
+
+@Path("/supports")
+@Produces({"application/json"})
+
+public class SupportRessource {
+	SupportDao sdao = new SupportDao();
+
+	  @GET
+	  @Path("/{supportId}")
+	  public SupportDto getSupportById(@PathParam("supportId") Long id_user)  {
+		  Support s =  sdao.findOne(id_user);
+		  if(s!=null) {
+			  return new SupportDto(s);
+		  }
+		  else return null;
+	      
+	  }
+
+}

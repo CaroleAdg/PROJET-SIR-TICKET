@@ -1,0 +1,39 @@
+package jpa;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+public class Message {
+	private Long id_message;
+	private String comment;
+	
+
+	public Message(Long id_message, String comment) {
+		super();
+		this.id_message = id_message;
+		this.comment = comment;
+	}
+	
+	@Id
+	@GeneratedValue
+	public Long getId_message() {
+		return id_message;
+	}
+
+	public void setId_message(Long id_message) {
+		this.id_message = id_message;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	
+	
+	
+}

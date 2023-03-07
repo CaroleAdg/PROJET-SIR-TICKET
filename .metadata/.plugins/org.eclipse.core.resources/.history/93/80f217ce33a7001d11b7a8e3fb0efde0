@@ -1,0 +1,7 @@
+package dao;
+
+import jpa.Tag;
+
+public class TagDao extends AbstractJpaDao<Long,Tag> {
+
+}
