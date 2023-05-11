@@ -21,7 +21,13 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
-import fr.istic.taa.jaxrs.rest.PetResource;
+import fr.istic.taa.jaxrs.filtre.CorsFiltre;
+import fr.istic.taa.jaxrs.rest.MessageRessource;
+import fr.istic.taa.jaxrs.rest.SupportRessource;
+import fr.istic.taa.jaxrs.rest.SwaggerResource;
+import fr.istic.taa.jaxrs.rest.TagRessource;
+import fr.istic.taa.jaxrs.rest.TicketRessource;
+import fr.istic.taa.jaxrs.rest.UserResource;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 
 public class TestApplication extends Application {
@@ -32,10 +38,15 @@ public class TestApplication extends Application {
 
         final Set<Class<?>> clazzes = new HashSet<Class<?>>();
 
-        clazzes.add(PetResource.class);
         clazzes.add(OpenApiResource.class);
+        clazzes.add(UserResource.class);
+        clazzes.add(SwaggerResource.class);
+        clazzes.add(TicketRessource.class);
+        clazzes.add(TagRessource.class);
+        clazzes.add(SupportRessource.class);
+        clazzes.add(MessageRessource.class);
+        clazzes.add(CorsFiltre.class);
         
-
         return clazzes;
     }
 

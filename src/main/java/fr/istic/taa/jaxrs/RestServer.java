@@ -3,6 +3,9 @@ package fr.istic.taa.jaxrs;
 import io.undertow.Undertow;
 import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
 
+import fr.istic.taa.jaxrs.dao.generic.UserDao;
+import fr.istic.taa.jaxrs.domain.User;
+
 import java.util.logging.Logger;
 
 /**
@@ -20,7 +23,6 @@ public class RestServer {
         TestApplication ta = new TestApplication();
 
         ut.deploy(ta);
-
         ut.start(
                 Undertow.builder()
                         .addHttpListener(8080, "localhost")
@@ -28,5 +30,12 @@ public class RestServer {
         );
 
         logger.info("JAX-RS based micro-service running!");
+        
+        User user = new User();
+		user.setFirst_name("Durand");
+		user.setLast_name("BILL");
+		
+		UserDao dao = new UserDao();
+		dao.save(user);
     }
 }
